@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{ title }}</p>
+
+<ul>
+{{#each myArray as |val key| }}
+    <li>{{ key }} => {{ val }}</li>
+{{/each}}
+</ul>
+
+
+<br/>
+
+<form action="/test/submit" method="post">
+    <input type="text" name="id">
+    c
+    <button type="submit">Submit</button>
+</form>
