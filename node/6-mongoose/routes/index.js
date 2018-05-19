@@ -19,6 +19,14 @@ router.get('/', function(req, res, next) {
   
 });
 
+//test nodemon
+/* GET home page. */
+router.get('/home', function(req, res, next) {
+  //res.render('index', { title: 'Express' });
+  res.render('index');
+  
+});
+
 router.get('/get-data', function(req,res,next){
   UserData.find()
   .then(function(doc) {
