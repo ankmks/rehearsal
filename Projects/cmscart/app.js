@@ -39,6 +39,9 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Set glocal errors variable
+app.locals.errors = null;
+
 //Start the server
 //
 // app.get('/', function(req,res){
