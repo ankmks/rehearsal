@@ -4,7 +4,12 @@ var router = express.Router();
 var Page = require('../models/page');
 
 router.get('/', function(req, res){
-    res.send('Somewhere I belong.');
+    //res.send('Somewhere I belong.');
+    Page.find({}).sort({sorting: 1}).exec(function(err, pages){
+       res.render('admin/pages',{
+           pages: pages
+       });
+    });
 });
 
 router.get('/add-page', function(req, res){
@@ -25,8 +30,6 @@ router.get('/add-page', function(req, res){
 //
 // POST add page
 //
-
-
     router.post('/add-page', function(req, res){
 
         req.checkBody('title', 'Title must have a value').notEmpty();
@@ -64,7 +67,7 @@ router.get('/add-page', function(req, res){
                         title: title,
                         slug: slug,
                         content: content,
-                        sorting: 0
+                        sorting: 100
                     });
 
                     page.save(function(err){
@@ -86,6 +89,29 @@ router.get('/add-page', function(req, res){
 
     });
 
+//reorder pages post.
+    router.post('/reorder-pages', function(req, res){
+        //console.log(req.body);
+        var ids = req.body['id[]'];
+
+        var count = 0;
+
+        for(var i=0; i < ids.length; i++){
+            var id = ids[i];
+            count++;
+
+            (function(count) {
+            Page.findById(id, function(err, page){
+                page.sorting = count;
+                page.save(function(err){
+                    if(err)
+                        return console.log(err);
+                });
+            });
+        }) (count);            
+        }
+
+    });
 
 
 
