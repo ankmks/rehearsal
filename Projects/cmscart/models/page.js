@@ -1,4 +1,6 @@
-var mongoose = require('mongo');
+var mongoose = require('mongoose');
+
+
 
 //Page Schema
 var PageSchema = mongoose.Schema({
@@ -18,4 +20,4 @@ var PageSchema = mongoose.Schema({
     },
 });
 
-var Page = module.exports = mongoose.model('Page');
+var Page = module.exports = mongoose.model('Page',PageSchema);

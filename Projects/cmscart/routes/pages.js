@@ -7,4 +7,10 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/index', function(req, res){
+    res.render('index',{
+        title : 'Home'
+    });
+});
+
 module.exports = router;
