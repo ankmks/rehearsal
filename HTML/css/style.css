@@ -1,0 +1,46 @@
+.slider-img{
+    background-image: url('../images/slider-1.jpg');
+    height: 80vh;
+    color: #fff;
+    position: relative;
+}
+
+.slider-img .over-img a{
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    background-color: none;
+    border-radius: 25px;
+    color: #fff;
+
+}
+
+.slider-img .over-img a.active{
+    background-color: #ffc107;
+}
+
+.over-img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.navbar{
+    position: absolute;
+    background: none;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar a{
+    color: #fff;
+}
+
+.brand{
+    font-size: 28px;
+    color: #ffc107 !important;
+    border: 1px solid #ffffff;
+    padding: 40px 15px;
+}
